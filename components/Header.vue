@@ -1,16 +1,14 @@
 <template>
     <div>
-        <v-app-bar color="#cfd8dc" density="compact"
+        <v-app-bar color="#eee" density="compact"
     >
         <v-app-bar-nav-icon icon="mdi-view-list" @click="drawer = !drawer"></v-app-bar-nav-icon>
         
         <v-toolbar-title style="width: 300px;">
             <nuxt-link to="/">
-                <img src="/img/logo.png" alt="Dev116 Logo" style="width: 150px;">
+                <img src="/img/logo.png" alt="Dev116 Logo" style="width: 150px; margin: 8px 0 0 0;">
             </nuxt-link>
         </v-toolbar-title>
-
-        <v-app-bar-title>DEV116</v-app-bar-title>
 
         <v-icon>mdi mdi-star-outline</v-icon>
                 
