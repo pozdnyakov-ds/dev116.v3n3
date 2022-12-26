@@ -2,7 +2,8 @@ import { createI18n } from 'vue-i18n'
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n({
-    legacy: false,
+    legacy: true,
+    lazy: true,
     globalInjection: true,
     locale: 'ru',
     messages: {
@@ -11,26 +12,53 @@ export default defineNuxtPlugin(({ vueApp }) => {
             title: "Начало",
         },
         about: {
-        title: "О компании",
+          title: "О компании",
         },
         products: {
-        title: "Продукты",
+          title: "Продукты",
         },
         services: {
-        title: "Услуги",
+          title: "Услуги",
         },
         contacts: {
-        title: "Контакты",
+          title: "Контакты",
         },
         cab: {
-        title: "Кабинет",
+          title: "Кабинет",
         },
         admin: {
-        title: "Управление",
+          title: "Управление",
         },
         footer: {
-        feedback: "Наши контакты",
-        copyright: "Все права защищены",
+          feedback: "Наши контакты",
+          copyright: "Все права защищены",
+        }
+      },
+      en: {
+        index: {
+          title: "Home",
+        },
+        about: {
+          title: "About",
+        },
+        products: {
+          title: "Products",
+        },
+        services: {
+          title: "Services",
+        },
+        contacts: {
+          title: "Contacts",
+        },
+        cab: {
+          title: "Cabinet",
+        },
+        admin: {
+          title: "Admin panel",
+        },
+        footer: {
+          feedback: "Our contacts",
+          copyright: "All rights reserved",
         }
       }
     }
