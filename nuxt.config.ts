@@ -1,3 +1,5 @@
+import { i18n } from "./locales/i18n-config";
+
 export default defineNuxtConfig({
     css: ['vuetify/lib/styles/main.sass'],
     build: {
@@ -10,6 +12,7 @@ export default defineNuxtConfig({
     },
     modules: [
       '@vueuse/nuxt',
+      '@intlify/nuxt3',
       [
         '@pinia/nuxt',
         {
@@ -20,4 +23,11 @@ export default defineNuxtConfig({
     imports: {
       dirs: ['stores'],
     },
+  intlify: {
+    localeDir: 'locales',
+    vueI18n: {
+      locale: 'ru'
+    }
+  }
+    
 })
