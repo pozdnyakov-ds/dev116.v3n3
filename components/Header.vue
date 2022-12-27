@@ -4,11 +4,36 @@
     >
         <v-app-bar-nav-icon icon="mdi-view-list" @click="drawer = !drawer"></v-app-bar-nav-icon>
         
-        <v-toolbar-title style="width: 300px;">
+        <v-toolbar-title style="min-width: 150px;">
             <nuxt-link to="/">
                 <img src="/img/logo.png" alt="Dev116 Logo" style="width: 150px; margin: 8px 0 0 0;">
             </nuxt-link>
         </v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <template style="display: block;">
+            <!-- v-slot:extension  -->
+            <v-tabs v-model="tab" color="green">
+                <v-tab>
+                    <nuxt-link key=0 to="/" exact>{{ $t('index.title') }}</nuxt-link>
+                </v-tab>
+                <v-tab>
+                    <nuxt-link key=1 to="/about">{{ $t('about.title') }}</nuxt-link>
+                </v-tab>
+                <v-tab>
+                    <nuxt-link key=2 to="/products">{{ $t('products.title') }}</nuxt-link>
+                </v-tab>
+                <v-tab>
+                    <nuxt-link key=3 to="/services">{{ $t('services.title') }}</nuxt-link>
+                </v-tab>
+                <v-tab>
+                    <nuxt-link key=4 to="/contacts">{{ $t('contacts.title') }}</nuxt-link>
+                </v-tab>
+            </v-tabs>
+        </template>
+
+        <v-spacer></v-spacer>
 
         <v-icon>mdi mdi-star-outline</v-icon>
 
@@ -17,10 +42,10 @@
         </v-btn>
      
         <template v-if="$i18n.locale=='en'" v-slot:append>
-            <v-btn @click="$i18n.locale='ru'">{{ $i18n.locale }}</v-btn>
+            <v-btn @click="$i18n.locale='ru'">RU</v-btn>
         </template>
         <template v-else v-slot:append>
-            <v-btn @click="$i18n.locale='en'">{{ $i18n.locale }}</v-btn>
+            <v-btn @click="$i18n.locale='en'">EN</v-btn>
         </template>
         
         </v-app-bar>
@@ -36,6 +61,18 @@
                 <nuxt-link to="/about" exact class="navbar-link">{{ $t('about.title') }}</nuxt-link>
             </v-list-item>
 
+            <v-list-item style="min-height: 36px;">
+                <nuxt-link to="/products" exact class="navbar-link">{{ $t('products.title') }}</nuxt-link>
+            </v-list-item>
+
+            <v-list-item style="min-height: 36px;">
+                <nuxt-link to="/services" exact class="navbar-link">{{ $t('services.title') }}</nuxt-link>
+            </v-list-item>
+
+            <v-list-item style="min-height: 36px;">
+                <nuxt-link to="/contacts" exact class="navbar-link">{{ $t('contacts.title') }}</nuxt-link>
+            </v-list-item>
+
         </v-navigation-drawer>
 
     </div>
@@ -43,6 +80,7 @@
 
 <script setup>
 let drawer = ref(false)
+let tab = ref(null)
 
 </script>
 
@@ -50,5 +88,10 @@ let drawer = ref(false)
 .navbar-link {
     color: #333;
     text-decoration: none;
+}
+a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
 }
 </style>
