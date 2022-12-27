@@ -23,5 +23,10 @@
   footer: {
     feedback: "Our contacts",
     copyright: "All rights reserved"
+  },
+  login: {
+    enter: "Enter to cabinet",
+    registration: "Registration",
+    forgot: "Forgot password"
   }
 }

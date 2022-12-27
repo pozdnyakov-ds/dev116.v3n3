@@ -23,5 +23,10 @@
   footer: {
     feedback: "Наши контакты",
     copyright: "Все права защищены"
+  },
+  login: {
+    enter: "Войти в кабинет",
+    registration: "Регистрация",
+    forgot: "Забыл пароль"
   }
 }

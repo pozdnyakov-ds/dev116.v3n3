@@ -4,7 +4,7 @@
     >
         <v-app-bar-nav-icon icon="mdi-view-list" @click="drawer = !drawer"></v-app-bar-nav-icon>
         
-        <v-toolbar-title style="min-width: 150px;">
+        <v-toolbar-title style="width: 200px; min-width: 150px;">
             <nuxt-link to="/">
                 <img src="/img/logo.png" alt="Dev116 Logo" style="width: 150px; margin: 8px 0 0 0;">
             </nuxt-link>
@@ -38,7 +38,9 @@
         <v-icon>mdi mdi-star-outline</v-icon>
 
         <v-btn icon>
-            <v-icon>mdi-account</v-icon>
+            <nuxt-link to="/login">
+                <v-icon>mdi-account</v-icon>
+            </nuxt-link>
         </v-btn>
      
         <template v-if="$i18n.locale=='en'" v-slot:append>
