@@ -18,5 +18,6 @@
     background-color: #263238;
     height: 50px;
     color: white;
+    z-index: 9999;
 }
 </style>

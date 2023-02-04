@@ -1,6 +1,18 @@
 import { i18n } from "./locales/i18n-config";
 
 export default defineNuxtConfig({
+    app: {
+      head: {
+        title: 'DASH Statistics',
+        meta: [
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        ],
+        link: [
+          { rel: 'icon', type: 'image/x-icon', href: '/public/img/favicon.ico' },
+        ]
+      },
+    },
     css: ['vuetify/lib/styles/main.sass'],
     build: {
       transpile: ['vuetify'],

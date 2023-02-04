@@ -52,26 +52,26 @@
         
         </v-app-bar>
 
-        <v-navigation-drawer app left absolute temporary 
-            v-model="drawer" style="width: 200px;">
+        <v-navigation-drawer app color="#566573" :permanent="true" class="mt-5"
+        style="top: 28px; width: 200px;" v-model="drawer" text-color="white">
 
-            <v-list-item style="min-height: 36px;">
+            <v-list-item style="margin-top: 10px;">
                 <nuxt-link to="/" exact class="navbar-link">{{ $t('index.title') }}</nuxt-link>
             </v-list-item>
 
-            <v-list-item style="min-height: 36px;">
+            <v-list-item>
                 <nuxt-link to="/about" exact class="navbar-link">{{ $t('about.title') }}</nuxt-link>
             </v-list-item>
 
-            <v-list-item style="min-height: 36px;">
+            <v-list-item>
                 <nuxt-link to="/products" exact class="navbar-link">{{ $t('products.title') }}</nuxt-link>
             </v-list-item>
 
-            <v-list-item style="min-height: 36px;">
+            <v-list-item>
                 <nuxt-link to="/services" exact class="navbar-link">{{ $t('services.title') }}</nuxt-link>
             </v-list-item>
 
-            <v-list-item style="min-height: 36px;">
+            <v-list-item>
                 <nuxt-link to="/contacts" exact class="navbar-link">{{ $t('contacts.title') }}</nuxt-link>
             </v-list-item>
 
@@ -81,19 +81,24 @@
 </template>
 
 <script setup>
-let drawer = ref(false)
+let drawer = ref(true)
 let tab = ref(null)
 
 </script>
 
 <style lang="scss" scoped>
 .navbar-link {
-    color: #333;
+    color: #fff;
     text-decoration: none;
+    font-weight: normal;
+    font-size: 90%;
 }
 a {
     font-weight: bold;
     text-decoration: none;
     color: #333;
+}
+.v-list-item--density-default {
+    min-height: 32px;
 }
 </style>

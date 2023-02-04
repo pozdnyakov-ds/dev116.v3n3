@@ -13,5 +13,8 @@
 <script setup>
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.v-main {
+    padding-left: 220px;
+}
 </style>
