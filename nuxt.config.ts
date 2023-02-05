@@ -1,5 +1,3 @@
-import { i18n } from "./locales/i18n-config";
-
 export default defineNuxtConfig({
     app: {
       head: {
@@ -9,7 +7,7 @@ export default defineNuxtConfig({
           { name: 'viewport', content: 'width=device-width, initial-scale=1' }
         ],
         link: [
-          { rel: 'icon', type: 'image/x-icon', href: '/public/img/favicon.ico' },
+          { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' },
         ]
       },
     },
@@ -38,7 +36,7 @@ export default defineNuxtConfig({
   intlify: {
     localeDir: 'locales',
     vueI18n: {
-      locale: 'ru'
+      locale: 'en'
     }
   }
     

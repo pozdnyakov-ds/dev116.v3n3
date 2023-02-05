@@ -15,6 +15,6 @@
 
 <style scoped>
 .v-main {
-    padding-left: 220px;
+    padding-left: 210px;
 }
 </style>

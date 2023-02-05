@@ -1,6 +1,6 @@
 <template>
 	<div>
-	<nuxt-link to="/"><v-img src="img/logo_center.png"></v-img></nuxt-link>
+	<nuxt-link to="/"><v-img src="img/dash-logo-stripe.svg"></v-img></nuxt-link>
 
     <div style="background: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 10px; min-width: 350px;">
 	

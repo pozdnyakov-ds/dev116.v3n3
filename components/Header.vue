@@ -1,19 +1,18 @@
 <template>
     <div>
-        <v-app-bar color="#eee" density="compact"
+        <v-app-bar color="#263238" density="compact"
     >
-        <v-app-bar-nav-icon icon="mdi-view-list" @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <!-- <v-app-bar-nav-icon icon="mdi-view-list" @click="drawer = !drawer"></v-app-bar-nav-icon> -->
         
-        <v-toolbar-title style="width: 200px; min-width: 150px;">
+        <!-- <v-toolbar-title style="width: 200px; min-width: 150px;">
             <nuxt-link to="/">
                 <img src="/img/logo.png" alt="Dev116 Logo" style="width: 150px; margin: 8px 0 0 0;">
             </nuxt-link>
-        </v-toolbar-title>
+        </v-toolbar-title> -->
 
         <v-spacer></v-spacer>
 
-        <template style="display: block;">
-            <!-- v-slot:extension  -->
+        <!-- <template style="display: block;">
             <v-tabs v-model="tab" color="green">
                 <v-tab>
                     <nuxt-link key=0 to="/" exact>{{ $t('index.title') }}</nuxt-link>
@@ -31,11 +30,11 @@
                     <nuxt-link key=4 to="/contacts">{{ $t('contacts.title') }}</nuxt-link>
                 </v-tab>
             </v-tabs>
-        </template>
+        </template> -->
 
         <v-spacer></v-spacer>
 
-        <v-icon>mdi mdi-star-outline</v-icon>
+        <!-- <v-icon>mdi mdi-star-outline</v-icon> -->
 
         <v-btn icon>
             <nuxt-link to="/login">
@@ -96,7 +95,10 @@ let tab = ref(null)
 a {
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: #fff;
+}  
+.v-btn {
+    color: #fff;
 }
 .v-list-item--density-default {
     min-height: 32px;
