@@ -14,7 +14,7 @@
 				</div>
 
 				<div class="input-group mb-3">
-					<v-text-field @keyup.enter="submitForm(userInfo)" v-model="userInfo.password" label="Пароль" :type="showPassword ? 'text' : 'password'"
+					<v-text-field @keyup.enter="submitForm(userInfo)" v-model="userInfo.password" label="Password" :type="showPassword ? 'text' : 'password'"
 						:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" @click:append="showPassword = !showPassword"
 						counter=16 outlined 
 						:rules="[required('Пароль'), minLength('Пароль', 3), maxLength('Пароль', 16)]" />
@@ -25,11 +25,11 @@
 				</div>
 
 				<div class="col-12" style="text-align: center;">
-					<nuxt-link to="/register" style="text-decoration: none;">Регистрация</nuxt-link>
+					<nuxt-link to="/register" style="text-decoration: none;">{{ $t('login.registration') }}</nuxt-link>
 				</div>
 
 				<div class="col-12" style="text-align: center; padding: 0px; padding-buttom: 0px;">
-					<nuxt-link to="/forgot" style="text-decoration: none;">Забыл пароль</nuxt-link>
+					<nuxt-link to="/forgot" style="text-decoration: none;">{{ $t('login.forgot') }}</nuxt-link>
 				</div>
 
 				<div v-if="message" class="row" style="text-align: center;">

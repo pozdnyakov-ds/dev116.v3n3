@@ -80,6 +80,7 @@
 </template>
 
 <script setup>
+const userStore = useUserStore()
 let drawer = ref(true)
 let tab = ref(null)
 

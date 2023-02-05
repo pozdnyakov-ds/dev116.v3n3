@@ -27,6 +27,7 @@
   login: {
     enter: "Enter to cabinet",
     registration: "Registration",
-    forgot: "Forgot password"
+    forgot: "Forgot password",
+    password: "Password"
   }
 }

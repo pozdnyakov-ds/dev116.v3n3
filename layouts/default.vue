@@ -7,6 +7,7 @@
             </v-container>
         </v-main>
         <Footer />
+        <Progress />
     </v-app>
 </template>
 

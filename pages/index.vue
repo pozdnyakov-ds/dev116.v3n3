@@ -8,6 +8,12 @@
 
 <script setup>
 const { x, y } = useMouse()
+
+const indexStore = useIndexStore()
+indexStore.progress = true;
+setTimeout(() => {
+    indexStore.progress = false
+}, 3000)
     
 </script>
 

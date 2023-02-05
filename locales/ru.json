@@ -27,6 +27,7 @@
   login: {
     enter: "Войти в кабинет",
     registration: "Регистрация",
-    forgot: "Забыл пароль"
+    forgot: "Забыл пароль",
+    password: "Пароль"
   }
 }
