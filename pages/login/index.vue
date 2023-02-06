@@ -9,51 +9,58 @@
 				<p style="text-align: center; margin-bottom: 10px;"><b>{{ $t('login.enter') }}</b></p>
 
 				<div class="input-group mb-3">
-					<v-text-field v-model="userInfo.email" label="Email" type="email" append-icon="mdi-mail" counter=64
+					<v-text-field v-model="userInfo.email" :label="iEmail" type="email" append-icon="mdi-mail" counter=64
 						outlined :rules="[required('Email'), minLength('Email', 5), maxLength('Email', 64)]" />
 				</div>
 
 				<div class="input-group mb-3">
-					<v-text-field @keyup.enter="submitForm(userInfo)" v-model="userInfo.password" label="Password" :type="showPassword ? 'text' : 'password'"
+					<v-text-field @keyup.enter="submitForm(userInfo)" v-model="userInfo.password" :label="iPassword" :type="showPassword ? 'text' : 'password'"
 						:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" @click:append="showPassword = !showPassword"
 						counter=16 outlined 
 						:rules="[required('Пароль'), minLength('Пароль', 3), maxLength('Пароль', 16)]" />
 				</div>
 
-				<div class="col-12" style="padding: 0px;">
-					<v-btn block @click.prevent="submitForm(userInfo)" :disabled="!valid">Войти</v-btn>
+				<div class="col-12" style="padding: 0px; margin-bottom: 0px;">
+					<v-btn style="background-color: #119DFF; color: #fff;" block @click.prevent="submitForm(userInfo)" :disabled="!valid">{{ $t('login.go') }}</v-btn>
 				</div>
 
-				<div class="col-12" style="text-align: center;">
+				<!-- <div class="col-12" style="text-align: center;">
 					<nuxt-link to="/register" style="text-decoration: none;">{{ $t('login.registration') }}</nuxt-link>
 				</div>
 
 				<div class="col-12" style="text-align: center; padding: 0px; padding-buttom: 0px;">
 					<nuxt-link to="/forgot" style="text-decoration: none;">{{ $t('login.forgot') }}</nuxt-link>
-				</div>
+				</div> -->
 
-				<div v-if="message" class="row" style="text-align: center;">
-					<div class='col-12'><span :style="messageStyle">{{ message }}</span></div>
+				<div v-if="message" class="row" style="text-align: center; margin-top: 10px; color: red;">
+					<div class='col-12'><span>{{ message }}</span></div>
 				</div>
 
 			</v-container>
-
 		</v-form>
 	</div>
 	</div>
 </template>
 
 <script setup>
-    const strategy = 'local'
+	import { useStorage } from '@vueuse/core'
+
     let valid = ref(false)
-    let error = 0
+    let error = ref(0)
     let message = ref('')
-    const messageStyle = "#333"
     let showPassword = ref(false)
 
+	let iEmail = ref(getCurrentInstance().proxy.$t('login.email'))
+	let iPassword = ref(getCurrentInstance().proxy.$t('login.password'))
+	let iEnter = ref(getCurrentInstance().proxy.$t('login.enter'))
+
     let userInfo = reactive({
-        email: '2903015@gmail.com',
-        password: ''
+		id: null,
+		name: '',
+		surname: '',
+		email: '2903015@gmail.com',
+        password: '',
+		scope: ''
 	})
 
     definePageMeta({
@@ -70,6 +77,57 @@
 		return v => v && v.length <= maxLength || `${propertyType} должно быть меньше ${maxLength} символов!`
 	}
 
+	watch(valid, (n, o) => {
+			if (o === false && n === null && userInfo.password.length > 0) {
+				valid.value = true
+			}
+	})
+
+	const userStore = useUserStore()
+
+	const submitForm = (userInfo) => {
+		try {
+			$fetch('/api/users', { 
+				method: 'post', 
+				body: { 
+					email: userInfo.email,
+					password: userInfo.password	
+				} 
+			})
+			.then(async (response) => {
+				console.log("DATA: ", response)
+				error.value = response.data.error
+				message.value = response.data.error > 0 ? response.data.message : ''
+				
+				if (error.value == 0) {
+					// try {
+						const user = { ...response.data.user }
+						let scope = user.scope.split(',') || []
+						user.scope = scope
+						userStore.loggedIn = true
+						
+						localStorage.setItem('loggedIn', true)
+						//var loggedIn = useStorage('loggedIn', true)
+						//loggedIn.value = true
+						//console.log("storage.loggedIn: ", loggedIn.value)
+						
+						const router = useRouter()
+						router.push("/")
+
+					// } catch (e) {
+  					// 	userStore.loggedIn = false
+					// }
+				} else {
+					userStore.loggedIn = false
+				}
+			}).catch(e => {
+				userStore.loggedIn = false
+			});
+
+		} catch (e) {
+			userStore.loggedIn = false;
+		}
+	}	
 </script>
 
 <style lang="scss" scoped>
