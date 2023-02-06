@@ -1,9 +1,11 @@
 export const useUserStore = defineStore('user', {
     state: () => ({
-        name: 'dash_user',
+        name: '',
         surname: '', 
-        email: 'd.istomin@itspecial.net',
-        phone: ''
+        email: '',
+        phone: '',
+        scope: null,
+        loggedIn: false
     }),
     actions: {
         setPhone(phone: string) { 

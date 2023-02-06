@@ -25,9 +25,11 @@
     copyright: "All rights reserved"
   },
   login: {
-    enter: "Enter to cabinet",
-    registration: "Registration",
+    enter: "Sign In",
+    registration: "Sign Up",
     forgot: "Forgot password",
-    password: "Password"
+    email: "Email",
+    password: "Password",
+    go: "Go"
   }
 }

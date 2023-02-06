@@ -36,12 +36,23 @@
 
         <!-- <v-icon>mdi mdi-star-outline</v-icon> -->
 
+        <div style="color: #fff;">userStore: [{{ userStore.loggedIn }}]</div>
+        <div style="color: #fff;">, storage: [{{ loggedIn }}]</div>
+
         <v-btn icon>
             <nuxt-link to="/login">
                 <v-icon>mdi-account</v-icon>
             </nuxt-link>
         </v-btn>
-     
+
+        <client-only>
+            <v-btn icon v-if="userStore.loggedIn">
+                <nuxt-link to="#">
+                    <v-icon @click="logout">mdi-logout</v-icon>
+                </nuxt-link>
+            </v-btn>
+        </client-only>
+   
         <template v-if="$i18n.locale=='en'" v-slot:append>
             <v-btn @click="$i18n.locale='ru'">RU</v-btn>
         </template>
@@ -80,9 +91,19 @@
 </template>
 
 <script setup>
-const userStore = useUserStore()
+import { useStorage } from '@vueuse/core'
+
+const loggedIn = useStorage('loggedIn', false)
+console.log("Storage: ", loggedIn.value);
+
 let drawer = ref(true)
 let tab = ref(null)
+
+const userStore = useUserStore()
+const logout = () => {
+    userStore.loggedIn = false
+    loggedIn.value = false
+}
 
 </script>
 

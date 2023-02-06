@@ -25,9 +25,11 @@
     copyright: "Все права защищены"
   },
   login: {
-    enter: "Войти в кабинет",
+    enter: "Войти",
     registration: "Регистрация",
     forgot: "Забыл пароль",
-    password: "Пароль"
+    email: "Email",
+    password: "Пароль",
+    go: "Вперед"
   }
 }
