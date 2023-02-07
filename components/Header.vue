@@ -91,15 +91,17 @@
 </template>
 
 <script setup>
-import { useStorage } from '@vueuse/core'
+import { useSessionStorage } from '@vueuse/core'
 
-const loggedIn = useStorage('loggedIn', false)
-console.log("Storage: ", loggedIn.value);
+const loggedIn = useSessionStorage('logged-in', false)
+console.log("Header Session Storage: ", loggedIn.value);
+
+const userStore = useUserStore()
+console.log("Header Pinia Storage: ", userStore.loggedIn);
 
 let drawer = ref(true)
 let tab = ref(null)
 
-const userStore = useUserStore()
 const logout = () => {
     userStore.loggedIn = false
     loggedIn.value = false

@@ -43,8 +43,6 @@
 </template>
 
 <script setup>
-	import { useStorage } from '@vueuse/core'
-
     let valid = ref(false)
     let error = ref(0)
     let message = ref('')
@@ -104,13 +102,14 @@
 						const user = { ...response.data.user }
 						let scope = user.scope.split(',') || []
 						user.scope = scope
+
+						var loggedIn = useSessionStorage('logged-in', false)
+						loggedIn.value = true
+						console.log("Login Session Storage: ", loggedIn.value)
+
 						userStore.loggedIn = true
-						
-						localStorage.setItem('loggedIn', true)
-						//var loggedIn = useStorage('loggedIn', true)
-						//loggedIn.value = true
-						//console.log("storage.loggedIn: ", loggedIn.value)
-						
+						console.log("Login Pinia Storage: ", userStore.loggedIn)
+
 						const router = useRouter()
 						router.push("/")
 
