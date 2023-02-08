@@ -36,12 +36,11 @@
 
         <!-- <v-icon>mdi mdi-star-outline</v-icon> -->
 
-        <div style="color: #fff;">userStore: [{{ userStore.loggedIn }}]</div>
-        <div style="color: #fff;">, storage: [{{ loggedIn }}]</div>
-
+        <div style="color: #fff;">{{ userStore.scope }}</div>
+        
         <v-btn icon>
-            <nuxt-link to="/login">
-                <v-icon>mdi-account</v-icon>
+            <nuxt-link to="/admin">
+                <v-icon>mdi mdi-eye-outline</v-icon>
             </nuxt-link>
         </v-btn>
 
@@ -91,22 +90,18 @@
 </template>
 
 <script setup>
-import { useSessionStorage } from '@vueuse/core'
-
-const loggedIn = useSessionStorage('logged-in', false)
-console.log("Header Session Storage: ", loggedIn.value);
-
-const userStore = useUserStore()
-console.log("Header Pinia Storage: ", userStore.loggedIn);
-
 let drawer = ref(true)
 let tab = ref(null)
 
+const userStore = useUserStore()
 const logout = () => {
     userStore.loggedIn = false
-    loggedIn.value = false
+    userStore.name = ''
+    userStore.surname = ''
+    userStore.email = ''
+    userStore.phone = ''
+    userStore.scope = []
 }
-
 </script>
 
 <style lang="scss" scoped>

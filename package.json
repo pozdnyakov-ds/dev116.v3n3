@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@intlify/nuxt3": "^0.2.4",
+    "@pinia-plugin-persistedstate/nuxt": "^1.0.0",
     "@vueuse/core": "^9.9.0",
     "@vueuse/nuxt": "^9.9.0",
     "nuxt": "3.0.0"

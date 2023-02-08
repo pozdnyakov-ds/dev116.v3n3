@@ -5,7 +5,7 @@ import * as directives from 'vuetify/directives'
 import { aliases, fa } from 'vuetify/iconsets/fa'
 import { mdi }  from "vuetify/lib/iconsets/mdi";
 
-import '@mdi/font/css/materialdesignicons.min.css'
+import '@mdi/font/css/materialdesignicons.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 
 export default defineNuxtPlugin(nuxtApp => {

@@ -4,7 +4,7 @@ export const useUserStore = defineStore('user', {
         surname: '', 
         email: '',
         phone: '',
-        scope: null,
+        scope: [],
         loggedIn: false
     }),
     actions: {
@@ -16,5 +16,6 @@ export const useUserStore = defineStore('user', {
         getPhone(): string { 
             return this.phone
         }
-    }
+    },
+    persist: true
 })
